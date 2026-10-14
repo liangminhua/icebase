@@ -1,0 +1,25 @@
+{
+  "name": "@nocobase/plugin-multi-space",
+  "displayName": "Multi-space",
+  "displayName.zh-CN": "多空间",
+  "description": "Logical data isolation across spaces: enable space isolation per collection, records are scoped by the X-Space request header.",
+  "description.zh-CN": "多空间逻辑隔离：按数据表启用空间隔离后，通过 X-Space 请求头自动限定各空间的读写范围。",
+  "version": "2.2.22",
+  "license": "Apache-2.0",
+  "main": "./dist/server/index.js",
+  "keywords": [
+    "Multi-space"
+  ],
+  "devDependencies": {
+    "antd": "5.x",
+    "react": "^18.2.0",
+    "react-i18next": "^11.15.1"
+  },
+  "peerDependencies": {
+    "@nocobase/client": "2.x",
+    "@nocobase/client-v2": "2.x",
+    "@nocobase/database": "2.x",
+    "@nocobase/server": "2.x",
+    "@nocobase/test": "2.x"
+  }
+}
