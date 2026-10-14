@@ -61,6 +61,28 @@ function ensureJunction(linkPath, targetPath, label) {
   return true;
 }
 
+/** 本脚本会创建的全部链接路径（均为纯本地产物，结束时统一清理，保证基座仓库工作区干净） */
+function linkPaths() {
+  return [...ALL_PLUGINS.map((name) => path.join(BASE_PLUGINS, `plugin-${name}`)), path.join(ROOT, 'node_modules')];
+}
+
+/** 清理链接：只删除链接本身（rmdir 不递归），遇到真实目录一律跳过，避免误删 */
+function teardown() {
+  let removed = 0;
+  for (const link of linkPaths()) {
+    if (lstatKind(link) !== 'link') {
+      continue;
+    }
+    try {
+      fs.rmdirSync(link);
+      removed += 1;
+    } catch (e) {
+      console.warn(`  ! 清理链接失败：${link}（${e.message}）`);
+    }
+  }
+  console.log(`\n已清理 ${removed} 个本地链接，基座仓库工作区保持干净。`);
+}
+
 function bootstrap() {
   if (!fs.existsSync(NOCOBASE)) {
     console.error('未找到基座目录 nocobase/，请先克隆 NocoBase 基座。');
@@ -121,12 +143,16 @@ const targets = requested.length ? requested : ALL_PLUGINS;
 
 bootstrap();
 
-console.log(`\n运行插件测试（串行）：${targets.join(', ')}\n`);
 let failed = 0;
-for (const name of targets) {
-  if (!runOne(name)) {
-    failed += 1;
+try {
+  console.log(`\n运行插件测试（串行）：${targets.join(', ')}\n`);
+  for (const name of targets) {
+    if (!runOne(name)) {
+      failed += 1;
+    }
   }
+} finally {
+  teardown();
 }
 
 console.log(`\n结果：${targets.length - failed}/${targets.length} 通过`);
