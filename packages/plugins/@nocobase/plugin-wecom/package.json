@@ -1,0 +1,35 @@
+{
+  "name": "@nocobase/plugin-wecom",
+  "displayName": "IM integration: WeCom (WeChat Work)",
+  "displayName.zh-CN": "IM 集成：企业微信",
+  "description": "WeCom (WeChat Work) integration: web authorization sign-in, group robot webhook notification channel, department and user synchronization.",
+  "description.zh-CN": "企业微信集成：网页授权登录、群机器人 Webhook 通知渠道、部门与用户同步。",
+  "version": "2.2.22",
+  "license": "Apache-2.0",
+  "main": "./dist/server/index.js",
+  "keywords": [
+    "Notification",
+    "Authentication"
+  ],
+  "dependencies": {
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "@formily/antd-v5": "1.x",
+    "@formily/core": "2.x",
+    "@formily/react": "2.x",
+    "antd": "5.x",
+    "react": "^18.2.0",
+    "react-i18next": "^11.15.1"
+  },
+  "peerDependencies": {
+    "@nocobase/client": "2.x",
+    "@nocobase/client-v2": "2.x",
+    "@nocobase/database": "2.x",
+    "@nocobase/plugin-auth": "2.x",
+    "@nocobase/plugin-notification-manager": "2.x",
+    "@nocobase/server": "2.x",
+    "@nocobase/test": "2.x",
+    "@nocobase/utils": "2.x"
+  }
+}

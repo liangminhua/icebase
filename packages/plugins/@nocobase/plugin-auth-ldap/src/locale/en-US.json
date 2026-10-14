@@ -1,0 +1,15 @@
+{
+  "LDAP": "LDAP",
+  "LDAP server URL": "LDAP server URL",
+  "Base DN": "Base DN",
+  "User filter template": "User filter template",
+  "Service account DN (optional)": "Service account DN (optional)",
+  "Service account password (optional)": "Service account password (optional)",
+  "Attributes mapping": "Attributes mapping",
+  "Email attribute": "Email attribute",
+  "Nickname attribute": "Nickname attribute",
+  "Please enter your username and password": "Please enter your username and password",
+  "The username or password is incorrect, please re-enter": "The username or password is incorrect, please re-enter",
+  "LDAP authenticator is not configured": "LDAP authenticator is not configured",
+  "LDAP service account bind failed": "LDAP service account bind failed"
+}

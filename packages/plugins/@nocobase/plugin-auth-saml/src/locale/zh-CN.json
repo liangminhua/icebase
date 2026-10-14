@@ -1,0 +1,16 @@
+{
+  "SAML": "SAML",
+  "Sign in with SAML": "使用 SAML 登录",
+  "IdP metadata": "IdP 元数据",
+  "IdP metadata XML or URL": "IdP 元数据 XML 或 URL",
+  "SP entity ID": "SP 实体 ID",
+  "SP ACS URL": "SP ACS 地址",
+  "SP private key": "SP 私钥（可选，用于签名请求）",
+  "Want assertions signed": "要求断言签名",
+  "Authenticator name is required": "缺少认证器标识",
+  "SAML response is required": "缺少 SAML 响应",
+  "SAML authentication failed": "SAML 认证失败",
+  "SAML authenticator is not configured": "SAML 认证器尚未配置",
+  "Invalid IdP metadata: SingleSignOnService or X509Certificate is missing": "IdP 元数据无效：缺少 SingleSignOnService 或 X509Certificate",
+  "Failed to fetch IdP metadata from {{url}}": "从 {{url}} 获取 IdP 元数据失败"
+}

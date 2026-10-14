@@ -1,0 +1,13 @@
+{
+  "CAS": "CAS",
+  "Sign in with CAS": "Sign in with CAS",
+  "CAS base URL": "CAS base URL",
+  "Service name (optional)": "Service name (optional, the base URL of this NocoBase registered in CAS)",
+  "Authenticator name is required": "Authenticator name is required",
+  "CAS ticket is required": "CAS ticket is required",
+  "CAS authentication failed": "CAS authentication failed",
+  "CAS authenticator is not configured": "CAS authenticator is not configured",
+  "Invalid CAS serviceValidate response": "Invalid CAS serviceValidate response",
+  "CAS serviceValidate request failed: {{message}}": "CAS serviceValidate request failed: {{message}}",
+  "CAS serviceValidate responded with status {{status}}": "CAS serviceValidate responded with status {{status}}"
+}

@@ -1,0 +1,16 @@
+{
+  "SAML": "SAML",
+  "Sign in with SAML": "Sign in with SAML",
+  "IdP metadata": "IdP metadata",
+  "IdP metadata XML or URL": "IdP metadata XML or URL",
+  "SP entity ID": "SP entity ID",
+  "SP ACS URL": "SP ACS URL",
+  "SP private key": "SP private key (optional, for signed requests)",
+  "Want assertions signed": "Want assertions signed",
+  "Authenticator name is required": "Authenticator name is required",
+  "SAML response is required": "SAML response is required",
+  "SAML authentication failed": "SAML authentication failed",
+  "SAML authenticator is not configured": "SAML authenticator is not configured",
+  "Invalid IdP metadata: SingleSignOnService or X509Certificate is missing": "Invalid IdP metadata: SingleSignOnService or X509Certificate is missing",
+  "Failed to fetch IdP metadata from {{url}}": "Failed to fetch IdP metadata from {{url}}"
+}

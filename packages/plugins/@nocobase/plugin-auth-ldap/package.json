@@ -1,0 +1,33 @@
+{
+  "name": "@nocobase/plugin-auth-ldap",
+  "displayName": "Auth: LDAP",
+  "displayName.zh-CN": "认证：LDAP",
+  "description": "LDAP directory authentication.",
+  "description.zh-CN": "基于 LDAP 目录服务的密码认证。",
+  "version": "2.2.22",
+  "license": "Apache-2.0",
+  "main": "./dist/server/index.js",
+  "keywords": [
+    "Authentication"
+  ],
+  "dependencies": {
+    "ldapts": "^7.0.0"
+  },
+  "devDependencies": {
+    "@formily/react": "2.x",
+    "antd": "5.x",
+    "react": "18.x",
+    "react-i18next": "^11.15.1"
+  },
+  "peerDependencies": {
+    "@nocobase/actions": "2.x",
+    "@nocobase/auth": "2.x",
+    "@nocobase/client": "2.x",
+    "@nocobase/client-v2": "2.x",
+    "@nocobase/database": "2.x",
+    "@nocobase/plugin-auth": "2.x",
+    "@nocobase/server": "2.x",
+    "@nocobase/test": "2.x",
+    "@nocobase/utils": "2.x"
+  }
+}

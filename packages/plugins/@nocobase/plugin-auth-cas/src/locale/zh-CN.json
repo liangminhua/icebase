@@ -1,0 +1,13 @@
+{
+  "CAS": "CAS",
+  "Sign in with CAS": "使用 CAS 登录",
+  "CAS base URL": "CAS 服务地址",
+  "Service name (optional)": "服务名称（可选，本 NocoBase 在 CAS 中注册的基础地址）",
+  "Authenticator name is required": "缺少认证器标识",
+  "CAS ticket is required": "缺少 CAS 票据",
+  "CAS authentication failed": "CAS 认证失败",
+  "CAS authenticator is not configured": "CAS 认证器尚未配置",
+  "Invalid CAS serviceValidate response": "CAS serviceValidate 响应无效",
+  "CAS serviceValidate request failed: {{message}}": "CAS serviceValidate 请求失败：{{message}}",
+  "CAS serviceValidate responded with status {{status}}": "CAS serviceValidate 响应状态码：{{status}}"
+}

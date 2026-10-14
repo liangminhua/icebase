@@ -1,0 +1,34 @@
+{
+  "name": "@nocobase/plugin-auth-saml",
+  "displayName": "Auth: SAML",
+  "displayName.zh-CN": "认证：SAML",
+  "description": "SAML 2.0 single sign-on authentication.",
+  "description.zh-CN": "基于 SAML 2.0 的单点登录认证。",
+  "version": "2.2.22",
+  "license": "Apache-2.0",
+  "main": "./dist/server/index.js",
+  "keywords": [
+    "Authentication"
+  ],
+  "dependencies": {
+    "@node-saml/node-saml": "^4.0.0"
+  },
+  "devDependencies": {
+    "@formily/react": "2.x",
+    "antd": "5.x",
+    "react": "18.x",
+    "react-i18next": "^11.15.1",
+    "react-router-dom": "6.x"
+  },
+  "peerDependencies": {
+    "@nocobase/actions": "2.x",
+    "@nocobase/auth": "2.x",
+    "@nocobase/client": "2.x",
+    "@nocobase/client-v2": "2.x",
+    "@nocobase/database": "2.x",
+    "@nocobase/plugin-auth": "2.x",
+    "@nocobase/server": "2.x",
+    "@nocobase/test": "2.x",
+    "@nocobase/utils": "2.x"
+  }
+}
