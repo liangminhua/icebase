@@ -1,0 +1,15 @@
+{
+  "Aggregate function": "聚合方式",
+  "Aggregate related records (sum/avg/count/min/max) at read time, following a hasMany or belongsToMany relation.": "沿一对多或多对多关系，在读取时对关联记录进行聚合（求和/平均/计数/最小/最大）。",
+  "Average": "平均",
+  "Count": "计数",
+  "Lookup": "查找引用",
+  "Match condition (JSON)": "匹配条件（JSON）",
+  "Max": "最大",
+  "Min": "最小",
+  "Read a field value from a related collection at read time, following a belongsTo or hasOne relation.": "沿多对一或一对一关系，在读取时获取关联表的字段值。",
+  "Relation field": "关系字段",
+  "Rollup": "汇总",
+  "Sum": "求和",
+  "Target field": "目标字段"
+}

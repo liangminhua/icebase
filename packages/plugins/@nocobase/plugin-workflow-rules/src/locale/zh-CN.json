@@ -1,0 +1,14 @@
+{
+  "Add rule": "添加规则",
+  "All match": "全部命中",
+  "Delete rule": "删除规则",
+  "Else (result expression)": "否则（结果表达式）",
+  "First match": "命中即停",
+  "Match mode": "匹配模式",
+  "Rules": "规则列表",
+  "Rules (decision table)": "决策表",
+  "Rules result": "决策表结果",
+  "Match an ordered rule list (when -> then) and return the result of the first matched rule, all matched results, or the else branch.": "按序匹配规则列表（条件 → 结果），返回第一条命中结果、全部命中结果或否则分支的值。",
+  "Then (result expression)": "则（结果表达式）",
+  "When (condition expression)": "当（条件表达式）"
+}

@@ -1,0 +1,15 @@
+{
+  "Aggregate function": "Aggregate function",
+  "Aggregate related records (sum/avg/count/min/max) at read time, following a hasMany or belongsToMany relation.": "Aggregate related records (sum/avg/count/min/max) at read time, following a hasMany or belongsToMany relation.",
+  "Average": "Average",
+  "Count": "Count",
+  "Lookup": "Lookup",
+  "Match condition (JSON)": "Match condition (JSON)",
+  "Max": "Max",
+  "Min": "Min",
+  "Read a field value from a related collection at read time, following a belongsTo or hasOne relation.": "Read a field value from a related collection at read time, following a belongsTo or hasOne relation.",
+  "Relation field": "Relation field",
+  "Rollup": "Rollup",
+  "Sum": "Sum",
+  "Target field": "Target field"
+}

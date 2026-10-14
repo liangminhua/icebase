@@ -1,0 +1,14 @@
+{
+  "Add rule": "Add rule",
+  "All match": "All match",
+  "Delete rule": "Delete rule",
+  "Else (result expression)": "Else (result expression)",
+  "First match": "First match",
+  "Match mode": "Match mode",
+  "Rules": "Rules",
+  "Rules (decision table)": "Rules (decision table)",
+  "Rules result": "Rules result",
+  "Match an ordered rule list (when -> then) and return the result of the first matched rule, all matched results, or the else branch.": "Match an ordered rule list (when -> then) and return the result of the first matched rule, all matched results, or the else branch.",
+  "Then (result expression)": "Then (result expression)",
+  "When (condition expression)": "When (condition expression)"
+}

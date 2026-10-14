@@ -1,0 +1,27 @@
+{
+  "name": "@nocobase/plugin-field-lookup",
+  "displayName": "Collection field: Lookup & Rollup",
+  "displayName.zh-CN": "数据表字段：查找引用与汇总",
+  "description": "Lookup field reads a field from a related collection, rollup field aggregates related records (sum/avg/count/min/max). Both are computed at read time.",
+  "description.zh-CN": "查找引用字段沿关系读取关联表的字段值，汇总字段对关联记录做聚合（sum/avg/count/min/max），均为读取时计算。",
+  "version": "2.2.22",
+  "license": "Apache-2.0",
+  "main": "./dist/server/index.js",
+  "keywords": [
+    "Collection fields"
+  ],
+  "devDependencies": {
+    "@formily/antd-v5": "1.x",
+    "@formily/core": "2.x",
+    "@formily/react": "2.x",
+    "react": "^18.2.0",
+    "react-i18next": "^11.15.1"
+  },
+  "peerDependencies": {
+    "@nocobase/client": "2.x",
+    "@nocobase/client-v2": "2.x",
+    "@nocobase/database": "2.x",
+    "@nocobase/server": "2.x",
+    "@nocobase/test": "2.x"
+  }
+}
