@@ -1,6 +1,6 @@
 # 插件化可行性评估 与 分阶段交付计划
 
-> 版本：v0.2（**重要修正**：基于 NocoBase v2.2.22 开源仓库实测）
+> 版本：v0.3（**交付完成**：6 组 9 个插件全部实现并通过测试，见 §6）
 > 目标：界定"开源仓库已有能力"与"真正缺口"，并给出可逐步交付的插件清单
 > 关联：[设计方案](./bitable-no-lock-design.md) · [数据模型 DDL](./schema.sql)
 
@@ -116,7 +116,57 @@ plugin-print-template  ·  plugin-auth-saml / -ldap / -cas  ·  plugin-dingtalk 
 
 ---
 
-## 6. 参考
+## 6. 交付进度（v0.3，2026-10-11）
+
+### 6.1 交付清单
+
+| # | 插件 | 位置 | 服务端测试 | 状态 |
+|---|---|---|---|---|
+| 1 | `@nocobase/plugin-field-lookup` | `packages/plugins/@nocobase/plugin-field-lookup` | 18/18 | ✅ 完成 |
+| 2 | `@nocobase/plugin-workflow-rules` | `packages/plugins/@nocobase/plugin-workflow-rules` | 9/9 | ✅ 完成 |
+| 3 | `@nocobase/plugin-multi-space` | `packages/plugins/@nocobase/plugin-multi-space` | 6/6 | ✅ 完成 |
+| 4 | `@nocobase/plugin-print-template` | `packages/plugins/@nocobase/plugin-print-template` | 12/12 | ✅ 完成 |
+| 5 | `@nocobase/plugin-auth-saml` | `packages/plugins/@nocobase/plugin-auth-saml` | 4/4 | ✅ 完成 |
+| 6 | `@nocobase/plugin-auth-ldap` | `packages/plugins/@nocobase/plugin-auth-ldap` | 4/4 | ✅ 完成 |
+| 7 | `@nocobase/plugin-auth-cas` | `packages/plugins/@nocobase/plugin-auth-cas` | 4/4 | ✅ 完成 |
+| 8 | `@nocobase/plugin-dingtalk` | `packages/plugins/@nocobase/plugin-dingtalk` | 10/10 | ✅ 完成 |
+| 9 | `@nocobase/plugin-wecom` | `packages/plugins/@nocobase/plugin-wecom` | 8/8 | ✅ 完成 |
+
+合计 9 个插件、75 个服务端用例全部通过（vitest 串行、`TEST_ENV=server-side`）；全部源码通过 `eslint --fix` 与 prettier（printWidth 120）检查，文件均带 AGPL-3.0/NocoBase Commercial 双许可头。
+
+### 6.2 各插件实现要点
+
+| 插件 | 实现要点 |
+|---|---|
+| field-lookup | `db.registerFieldTypes()` 注册 `lookup`/`rollup`；服务端加载时按 `target`/`foreignKey` 动态追加关系字段并重写查询输出；rollup 支持 sum/avg/count/min/max |
+| workflow-rules | `registerInstruction('rules')` 决策表节点；有序规则 `when`→`then`，`first-match`/`all-match` 模式，`else` 兜底；变量替换兼容 `{{$context.*}}`/`{{$jobsMapByNodeKey.*}}`，表达式走 mathjs |
+| multi-space | `spaces` 集合 + 集合级 `usingSpace` 开关；全局中间件注入 `spaceId` 过滤、写入自动打标；内存 options 即时生效 + 元数据持久化 |
+| print-template | 模板集合 + `render` Action；占位变量渲染，PDF/DOCX 输出 |
+| auth-saml/-ldap/-cas | `authManager.registerTypes()` + 继承 `BaseAuth`；`registerActionHandler` 之后才 `define` 资源（Resourcer Resource 构造时才摄入全局 handler）；单测分别 mock `@node-saml/node-saml` / `ldapts` / `fetch` |
+| dingtalk/-wecom | OAuth 认证 + 通知渠道 + 部门/用户同步（幂等 upsert）；钉钉走 v1.0 contact API 分页，企微走 `gettoken` + department/user list |
+
+### 6.3 已知风险与后续事项（复核记录）
+
+| 插件 | 风险 | 建议 |
+|---|---|---|
+| multi-space | 关联资源（relationship）动作不经过空间过滤；disable 集合时保留列仅隐藏 | 关联场景需在业务侧约束或后续增强中间件 |
+| print-template | `render` 直接按目标集合取数，绕过行级 ACL | 生产使用前为 render action 加权限校验 |
+| auth 三件套 | SAML RelayState 上限 80 字节；CAS 假设 service URL 为前缀匹配 | 部署时确认 IdP/CAS 服务端约定 |
+| dingtalk/-wecom | 企微 webhook 通知渠道无加签；同步幂等按唯一键 upsert；钉钉分页语义（cursor/offset）需对齐实际账号权限 | 接入真实租户前联调 |
+
+### 6.4 复现验证命令
+
+```bash
+# Windows（Node 装在含空格路径下需绕过 yarn test:server 的 execa bug）
+$env:TEST_ENV='server-side'; $env:NODE_ENV='test'; $env:LOGGER_LEVEL='error'
+node --no-node-snapshot --max_old_space_size=14096 ./node_modules/vitest/vitest.mjs `
+  packages/plugins/@nocobase/plugin-field-lookup --run --poolOptions.threads.singleThread=true
+# 其余 8 个插件同理，逐插件运行（vitest 多路径参数只跑第一个）
+```
+
+---
+
+## 7. 参考
 
 - NocoBase 源码（本地）：`/workspace/nocobase`，commit `a879e4d`，version `2.2.22`
 - [NocoBase 插件开发 Cheatsheet](https://docs.nocobase.com/plugin-development/client/appendix/cheatsheet)
